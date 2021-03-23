@@ -36,7 +36,7 @@ ckanext-resourceauthorizer-2 - Resource authorizing extension
    What does it do? What features does it have?
    Consider including some screenshots or embedding a video!
    
-NOTE: This is a fork of etri-odp's [ckanext-resourceauthorizer](https://github.com/etri-odp/ckanext-resourceauthorizer). This project updates ckanext-resourceauthorizer to be compatible with CKAN 2.9. Due to significant changes between CKAN 2.8 and CKAN 2.9, extensions and tutorials have to be rewritten. As of yet (3/23/2021), ckanext-resourceauthorizer had not offer support for CKAN 2.9, hence the reason for this fork. 
+NOTE: This is a fork of etri-odp's https://github.com/etri-odp/ckanext-resourceauthorizer. This project updates ckanext-resourceauthorizer to be compatible with CKAN 2.9. Due to significant changes between CKAN 2.8 and CKAN 2.9, extensions and tutorials have to be rewritten. As of yet (3/23/2021), ckanext-resourceauthorizer had not offer support for CKAN 2.9, hence the reason for this fork. 
 
 Resourceauthorizer is a extension for enalbing the acl-based permission control at resource-level in CKAN, which currently only support role-based access permission at dataset-level.
 
