@@ -29,12 +29,14 @@
     :alt: License
 
 ===========================================================
-ckanext-resourceauthorizer - Resource authorizing extension
+ckanext-resourceauthorizer-2 - Resource authorizing extension
 ===========================================================
 
 .. Put a description of your extension here:
    What does it do? What features does it have?
    Consider including some screenshots or embedding a video!
+   
+NOTE: This is a fork of etri-odp's (ckanext-resourceauthorizer)[https://github.com/etri-odp/ckanext-resourceauthorizer]. This project updates ckanext-resourceauthorizer to be compatible with CKAN 2.9. Due to significant changes between CKAN 2.8 and CKAN 2.9, extensions and tutorials have to be rewritten. As of yet (3/23/2021), ckanext-resourceauthorizer had not offer support for CKAN 2.9, hence the reason for this fork. 
 
 Resourceauthorizer is a extension for enalbing the acl-based permission control at resource-level in CKAN, which currently only support role-based access permission at dataset-level.
 
@@ -52,7 +54,7 @@ Notes:
 Requirements
 ------------
 
-This extension was developed and tested under CKAN-2.7.3
+This extension was developed and tested under CKAN-2.9
 
 ------------
 Installation
@@ -70,9 +72,9 @@ To install ckanext-resourceauthorizer:
 
 2. Install the ckanext-resourceauthorizer Python package into your virtual environment::
 
-     pip install ckanext-resourceauthorizer
+     pip install ckanext-resourceauthorizer-2
 
-3. Add ``resourceauthorizer`` to the ``ckan.plugins`` setting in your CKAN
+3. Add ``resourceauthorizer2`` to the ``ckan.plugins`` setting in your CKAN
    config file (by default the config file is located at
    ``/etc/ckan/default/production.ini``).
 
@@ -87,11 +89,11 @@ Config Settings
 
 Run the following command to create the necessary tables in the database (ensuring the pyenv is activated)::
 
-    (pyenv) $ paster --plugin=ckanext-resourceauthorizer resourceauthorizer initdb --config=/etc/ckan/default/production.ini
+    (pyenv) $ ckan -c /etc/ckan/default/production.ini resourceauthorizer db init
 
 Run the following command to reindex the CKAN metadata in solr (ensuring the pyenv is activated)::
 
-    (pyenv) $ paster --plugin=ckan search-index rebuild --config=/etc/ckan/default/production.ini
+    (pyenv) $ ckan -c /etc/ckan/default/production.ini rebuild
 
 Finally, restart CKAN to have the changes take affect:
 
