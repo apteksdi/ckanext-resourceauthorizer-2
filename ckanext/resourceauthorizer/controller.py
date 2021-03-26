@@ -113,7 +113,7 @@ class ResourceAuthorizerController(BaseController):
             abort(403)
         except NotFound:
             abort(404)
-        except ValidationError, e:
+        except ValidationError as e:
             h.flash_error(e.error_summary)
         return render(
             'resource-authorizer/acl_new.html',

@@ -5,7 +5,7 @@ import sys
 from ckan import model
 from ckan.logic import get_action
 
-from ckan.lib.cli import CkanCommand
+from ckan.cli.cli import CkanCommand
 
 
 class ResourceAuthorizerCommand(CkanCommand):
@@ -54,7 +54,7 @@ class ResourceAuthorizerCommand(CkanCommand):
         }
         self.admin_user = get_action('get_site_user')(context, {})
 
-        print ''
+        print('')
 
         cmd = self.args[0]
 
@@ -71,13 +71,13 @@ class ResourceAuthorizerCommand(CkanCommand):
         elif cmd == 'update-acl':
             self.update_acl()
         else:
-            print 'command %s not recognized' % cmd
+            print('command %s not recognized') % cmd
 
     def setup_db(self):
         from ckanext.resourceauthorizer.model import setup as db_setup
         db_setup()
-        print 'resource_acl table created'
-        print ''
+        print('resource_acl table created')
+        print('')
 
     def list_acl(self):
         context = {
@@ -95,7 +95,7 @@ class ResourceAuthorizerCommand(CkanCommand):
 
     def show_acl(self):
         if len(self.args) != 2:
-            print 'Please check arguments'
+            print('Please check arguments')
             sys.exit(1)
         context = {
             'model': model,
@@ -110,7 +110,7 @@ class ResourceAuthorizerCommand(CkanCommand):
 
     def create_acl(self):
         if len(self.args) != 5:
-            print 'Please check arguments'
+            print('Please check arguments')
             sys.exit(1)
         context = {
             'model': model,
@@ -128,7 +128,7 @@ class ResourceAuthorizerCommand(CkanCommand):
 
     def delete_acl(self):
         if len(self.args) != 2:
-            print 'Please check arguments'
+            print('Please check arguments')
             sys.exit(1)
         context = {
             'model': model,
@@ -139,12 +139,12 @@ class ResourceAuthorizerCommand(CkanCommand):
         data_dict = {}
         data_dict['id'] = unicode(self.args[1])
         get_action('resource_acl_delete')(context, data_dict)
-        print 'acl <%s> was deleted.' % data_dict['id']
-        print ''
+        print('acl <%s> was deleted.' % data_dict['id'])
+        print('')
 
     def update_acl(self):
         if len(self.args) != 5:
-            print 'Please check arguments'
+            print('Please check arguments')
             sys.exit(1)
         context = {
             'model': model,
@@ -161,13 +161,13 @@ class ResourceAuthorizerCommand(CkanCommand):
         self.print_acl(acl)
 
     def print_acl(self, acl):
-        print '              id: %s' % acl.get('id')
-        print '     resource id: %s' % acl.get('resource_id')
-        print '       auth type: %s' % acl.get('auth_type')
-        print '         auth id: %s' % acl.get('auth_id')
-        print '      permission: %s' % acl.get('permission')
-        print '         created: %s' % acl.get('created')
-        print '   last modified: %s' % acl.get('last_modified')
-        print ' creator user id: %s' % acl.get('creator_user_id')
-        print 'modifier user id: %s' % acl.get('modifier_user_id')
-        print ''
+        print('              id: %s' % acl.get('id'))
+        print('     resource id: %s' % acl.get('resource_id'))
+        print('       auth type: %s' % acl.get('auth_type'))
+        print('         auth id: %s' % acl.get('auth_id'))
+        print('      permission: %s' % acl.get('permission'))
+        print('         created: %s' % acl.get('created'))
+        print('   last modified: %s' % acl.get('last_modified'))
+        print(' creator user id: %s' % acl.get('creator_user_id'))
+        print('modifier user id: %s' % acl.get('modifier_user_id'))
+        print('')
