@@ -6,6 +6,7 @@ from ckan.plugins.toolkit import get_action
 from ckan.lib.plugins import DefaultPermissionLabels
 from ckanext.resourceauthorizer.logic import action
 from ckanext.resourceauthorizer.logic import auth
+import ckanext.resourceauthorizer.blueprint as view
 
 
 class ResourceAuthorizerPlugin(plugins.SingletonPlugin,
@@ -18,6 +19,7 @@ class ResourceAuthorizerPlugin(plugins.SingletonPlugin,
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IPermissionLabels)
     plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.IBlueprint)
 
     # IConfigurer
 
@@ -64,30 +66,6 @@ class ResourceAuthorizerPlugin(plugins.SingletonPlugin,
             'resource_view_list': auth.resource_view_list
         }
 
-    # IRoutes
-
-    def before_map(self, m):
-        m.connect(
-            'resource_acl',
-            '/dataset/{dataset_id}/resource/{resource_id}/acl',
-            controller=
-            'ckanext.resourceauthorizer.controller:ResourceAuthorizerController',
-            action='resource_acl',
-            ckan_icon='users')
-        m.connect(
-            'resource_acl_new',
-            '/dataset/{dataset_id}/resource/{resource_id}/acl_new',
-            controller=
-            'ckanext.resourceauthorizer.controller:ResourceAuthorizerController',
-            action='resource_acl_new')
-        m.connect(
-            'resource_acl_delete',
-            '/dataset/{dataset_id}/resource/{resource_id}/acl/{id}',
-            controller=
-            'ckanext.resourceauthorizer.controller:ResourceAuthorizerController',
-            action='resource_acl_delete')
-        return m
-
     # IPackageController
 
     def after_show(item, context, data_dict):
@@ -115,3 +93,10 @@ class ResourceAuthorizerPlugin(plugins.SingletonPlugin,
             resources = get_action(u'resource_list_for_user')()
             labels.extend(u'acl-%s' % o[u'resource_id'] for o in resources)
         return labels
+
+    # IBlueprint
+
+    def get_blueprint(self):
+        u'''Return a Flask Blueprint object to be registered by the app.'''
+
+        return view.resourceauthorizer
