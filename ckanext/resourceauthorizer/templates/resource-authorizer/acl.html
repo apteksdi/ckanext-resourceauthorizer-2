@@ -3,7 +3,7 @@
 {% block subtitle %}{{ h.dataset_display_name(pkg) }} - {{ h.resource_display_name(res) }}{% endblock %}
 
 {% block page_primary_action %}
-  {% link_for _('Add Resource ACL'), 'resourceauthorizer.resource_acl_new', dataset_id=dataset_id, resource_id=resource_id, class_='btn btn-primary', icon='plus-square' %}
+  {% link_for _('Add Resource ACL'), controller='resourceauthorizer', action='resource_acl_new', dataset_id=dataset_id, resource_id=resource_id, class_='btn btn-primary', icon='plus-square' %}
 {% endblock %}
 
 {% block primary_content_inner %}

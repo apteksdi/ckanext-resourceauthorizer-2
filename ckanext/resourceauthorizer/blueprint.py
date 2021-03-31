@@ -27,14 +27,12 @@ class ResourceAuthorizerAPI(MethodView):
             abort(404)
         return render(
             'resource-authorizer/acl.html',
-            {
+            extra_vars={
                 'pkg_dict': c.pkg_dict,
                 'resource': c.resource,
-                'fields': {
-                    'acls': rec,
-                    'dataset_id': dataset_id,
-                    'resource_id': resource_id
-                }
+                'acls': rec,
+                'dataset_id': dataset_id,
+                'resource_id': resource_id
             })
 
     def delete(self, dataset_id, resource_id, id):
@@ -97,13 +95,11 @@ class CreateResourceAuthorizerAPI(MethodView):
             h.flash_error(e.error_summary)
         return render(
             'resource-authorizer/acl_new.html',
-            {
+            extra_vars={
                 'pkg_dict': c.pkg_dict,
                 'resource': c.resource,
-                'fields': {
-                    'dataset_id': dataset_id,
-                    'resource_id': resource_id
-                }
+                'dataset_id': dataset_id,
+                'resource_id': resource_id
             })
 
     def post(self, dataset_id, resource_id):

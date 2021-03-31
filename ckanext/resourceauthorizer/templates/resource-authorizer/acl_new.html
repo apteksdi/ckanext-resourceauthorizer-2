@@ -5,7 +5,7 @@
 {% set acl = c.acl_dict %}
 
 {% block primary_content_inner %}
-  {% link_for _('Back to all resource acl'), 'resourceauthorizer.resource_acl', dataset_id=dataset_id, resource_id=resource_id, class_='btn btn-default pull-right', icon='arrow-left' %}
+  {% link_for _('Back to all resource acl'), controller='resourceauthorizer', action='resource_acl', dataset_id=dataset_id, resource_id=resource_id, class_='btn btn-default pull-right', icon='arrow-left' %}
   <h1 class="page-heading">
     {% block page_heading %}{{ _('Edit Resource Acl') if acl else _('Add Resource Acl') }}{% endblock %}
   </h1>
