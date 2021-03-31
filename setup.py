@@ -81,8 +81,9 @@ setup(
     entry_points='''
         [ckan.plugins]
         resourceauthorizer=ckanext.resourceauthorizer.plugin:ResourceAuthorizerPlugin
-        [paste.paster_command]
-        resourceauthorizer=ckanext.resourceauthorizer.commands:ResourceAuthorizerCommand
+        
+        [ckan.click_command]
+        resourceauthorizer=ckanext.resourceauthorizer.cli:resourceauthorizer
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan
