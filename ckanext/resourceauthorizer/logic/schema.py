@@ -8,26 +8,26 @@ from ckanext.resourceauthorizer.logic.validators import permission_validator
 def resource_acl_create_schema():
     schema = {
         'resource_id': [resource_id_exists],
-        'auth_type': [auth_type_validator, unicode],
-        'auth_id': [not_empty, unicode],
-        'permission': [permission_validator, unicode],
+        'auth_type': [auth_type_validator],
+        'auth_id': [not_empty],
+        'permission': [permission_validator],
     }
     return schema
 
 
 def resource_acl_update_schema():
     schema = {
-        'auth_type': [auth_type_validator, unicode],
-        'auth_id': [not_empty, unicode],
-        'permission': [permission_validator, unicode],
+        'auth_type': [auth_type_validator],
+        'auth_id': [not_empty],
+        'permission': [permission_validator],
     }
     return schema
 
 
 def resource_acl_patch_schema():
     schema = {
-        'auth_type': [ignore_missing, auth_type_validator, unicode],
-        'auth_id': [ignore_missing, not_empty, unicode],
-        'permission': [ignore_missing, permission_validator, unicode],
+        'auth_type': [ignore_missing, auth_type_validator],
+        'auth_id': [ignore_missing, not_empty],
+        'permission': [ignore_missing, permission_validator],
     }
     return schema

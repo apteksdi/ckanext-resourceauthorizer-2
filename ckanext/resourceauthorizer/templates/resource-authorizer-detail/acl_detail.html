@@ -1,0 +1,32 @@
+{% extends "package/resource_edit_base.html" %}
+
+{% import 'macros/form.html' as form %}
+
+{% block primary_content_inner %}
+  {% link_for _('Back to all resource acl'), controller='resourceauthorizer', action='resource_acl',
+  dataset_id=dataset_id, resource_id=resource_id, class_='btn btn-default pull-right', icon='arrow-left' %}
+  <h1 class="page-heading">
+    {% block page_heading %}{{ _('Edit Resource Acl') if acl else _('Add Resource Acl') }}{% endblock %}
+  </h1>
+  {% if not acl %} 
+    {% snippet "resource-authorizer-detail/snippets/acl_new.html", permissions=permissions, acl_permission=acl_permission %}
+  {% else %}
+    {% snippet "resource-authorizer-detail/snippets/acl_update.html", permissions=permissions, acl_permission=acl_permission %}
+  {% endif %}
+{% endblock %}
+
+{% block secondary_content %}
+  {{ super() }}
+  <div class="module module-narrow module-shallow">
+    <h2 class="module-heading">
+      <i class="fa fa-lg fa-info-circle"></i>
+      {{ _('What are permissions?') }}
+    </h2>
+    <div class="module-content">
+      {% trans %}
+      <p><strong>None:</strong> Cannot access the resource</p>
+      <p><strong>Read:</strong> Can access the resource</p>
+      {% endtrans %}
+    </div>
+  </div>
+{% endblock %}

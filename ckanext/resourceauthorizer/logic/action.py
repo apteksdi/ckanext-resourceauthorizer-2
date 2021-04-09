@@ -107,6 +107,7 @@ def resource_acl_create(context, data_dict):
     '''
     check_access('resource_acl_create', context, data_dict)
 
+    # print datadict and context
     data, errors = validate(data_dict, resource_acl_create_schema(), context)
 
     if errors:

@@ -1,0 +1,45 @@
+{% import 'macros/form.html' as form %}
+
+{% block form %}
+    <form class="dataset-form add-member-form" method='post' id="add-member-form">
+        <div class="row-fluid">
+            <div class="control-group control-medium">
+                <label class="control-label" for="username">
+                    {{ _('User') }}
+                </label>
+                <span>
+                    {{ _('If you wish to add an existing user, search for their username below.') }}
+                </span>
+                <div class="controls">
+                    <input id="username" type="text" name="username" placeholder="Username" value=""
+                        class="form-control control-medium" data-module="autocomplete"
+                        data-module-source="/api/2/util/user/autocomplete?q=?">
+                </div>
+            </div>
+            <div class="add-member-or">
+                {{ _('or') }}
+            </div>
+            <div class="control-group control-medium">
+                <label class="control-label" for="orgname">
+                    {{ _('Organization') }}
+                </label>
+                <span>
+                    {{ _('If you wish to add an existing organization, search for their organization below.') }}
+                </span>
+                <div class="controls">
+                    <input id="organization" type="text" name="organization" placeholder="Organization" value=""
+                        class="form-control control-medium" data-module="autocomplete"
+                        data-module-source="/api/2/util/organization/autocomplete?q=?">
+                </div>
+            </div>
+        </div>
+        {% set format_attrs = {'data-module': 'autocomplete'} %}
+        {{ form.select('permission', label=_('Permission'), options=permissions, selected=acl_permission, error='',
+        attrs=format_attrs) }}
+        <div class="form-actions">
+            <button class="btn btn-primary" type="submit" name="submit">
+                {{ _('Add Resource Acl') }}
+            </button>
+        </div>
+    </form>
+{% endblock %}
