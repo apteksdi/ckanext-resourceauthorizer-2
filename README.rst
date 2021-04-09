@@ -89,7 +89,7 @@ Config Settings
 
 Run the following command to create the necessary tables in the database (ensuring the pyenv is activated)::
 
-    (pyenv) $ ckan -c /etc/ckan/default/production.ini resourceauthorizer db init
+    (pyenv) $ ckan -c /etc/ckan/default/production.ini resourceauthorizer initdb
 
 Run the following command to reindex the CKAN metadata in solr (ensuring the pyenv is activated)::
 
