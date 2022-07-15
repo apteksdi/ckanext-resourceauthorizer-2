@@ -24,12 +24,14 @@ Usage:
 '''
 import sys
 
+import ckan.plugins as p
+
 import click
+from ckan.cli import config_tool
+from ckan.cli import load_config as _get_config
 
 from ckan import model
 from ckan.logic import get_action
-
-from ckan.cli.cli import CkanCommand
 
 
 @click.group()
