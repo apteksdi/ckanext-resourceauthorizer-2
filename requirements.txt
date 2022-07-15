@@ -12,10 +12,7 @@ bleach==3.1.4
 blinker==1.4
 certifi==2019.11.28
 chardet==3.0.4
-ckan @ file:///home/tk/ckan/lib/default/src/ckan
 ckanapi==4.5
--e git+https://github.com/tkq66/ckanext-resourceauthorizer-2.git@faee5ef40572b9aa5525ff398df22bb24077032e#egg=ckanext_resourceauthorizer
--e git+https://github.com/ckan/ckanext-scheming.git@a8f86cd3f5ce0d89c947ce7b15febe57b74f6880#egg=ckanext_scheming
 ckantoolkit==0.0.4
 click==7.1.2
 configparser==3.8.1
