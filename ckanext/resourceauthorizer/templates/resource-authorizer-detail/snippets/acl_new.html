@@ -16,7 +16,7 @@
                         data-module-source="/api/2/util/user/autocomplete?q=?">
                 </div>
             </div>
-            <div class="add-member-or">
+            <!-- <div class="add-member-or">
                 {{ _('or') }}
             </div>
             <div class="control-group control-medium">
@@ -31,7 +31,7 @@
                         class="form-control control-medium" data-module="autocomplete"
                         data-module-source="/api/2/util/organization/autocomplete?q=?">
                 </div>
-            </div>
+            </div> -->
         </div>
         {% set format_attrs = {'data-module': 'autocomplete'} %}
         {{ form.select('permission', label=_('Permission'), options=permissions, selected=acl_permission, error='',
