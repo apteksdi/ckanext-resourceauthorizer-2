@@ -144,18 +144,18 @@ class ModifyPageAPI(MethodView):
                     'resource_id': resource_id,
                     'permission': data_dict['permission']
                 }
-                if data_dict['organization']:
-                    group = model.Group.get(data_dict['organization'])
-                    if not group:
-                        message = _(u'Organization {org} does not exist.').format(
-                            org=data_dict['organization'])
-                        raise ValidationError(
-                            {
-                                'message': message
-                            }, error_summary=message)
-                    data['auth_type'] = 'org'
-                    data['auth_id'] = group.id
-                elif data_dict['username']:
+                # if data_dict['organization']:
+                #     group = model.Group.get(data_dict['organization'])
+                #     if not group:
+                #         message = _(u'Organization {org} does not exist.').format(
+                #             org=data_dict['organization'])
+                #         raise ValidationError(
+                #             {
+                #                 'message': message
+                #             }, error_summary=message)
+                #     data['auth_type'] = 'org'
+                #     data['auth_id'] = group.id
+                if data_dict['username']:
                     user = model.User.get(data_dict['username'])
                     if not user:
                         message = _(u'User {username} does not exist.').format(
