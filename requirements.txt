@@ -90,7 +90,7 @@ PyYAML==5.3.1
 redis==3.3.11
 repoze.lru==0.7
 repoze.who==2.3
-requests==2.22.0
+requests==2.28.2
 responses==0.10.14
 Routes==1.13
 rq==1.0
