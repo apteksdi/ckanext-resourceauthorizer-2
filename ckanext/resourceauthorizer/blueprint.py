@@ -145,7 +145,7 @@ class ModifyPageAPI(MethodView):
                     'permission': data_dict['permission']
                 }
                 if data_dict['organization']:
-                   group = model.Group.get(data_dict['organization'])
+                    group = model.Group.get(data_dict['organization'])
                     if not group:
                          message = _(u'Organization {org} does not exist.').format(
                              org=data_dict['organization'])
