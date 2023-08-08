@@ -13,7 +13,7 @@ blinker==1.4
 certifi==2019.11.28
 chardet==3.0.4
 ckanapi==4.5
-ckantoolkit==0.0.4
+ckantoolkit>=0.0.7
 click==7.1.2
 configparser==3.8.1
 cookiecutter==1.7.0
